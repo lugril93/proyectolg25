@@ -1,0 +1,21 @@
+{% extends 'todo/layout.html' %}
+
+{%block content%}
+      <h1> Lista de mis actividades</h1>
+
+
+      <ul>
+      {% for tarea in tareas %}
+      <li class="font-weight-bold" style="font-size: 1.5rem;">{{ tarea }}</li>
+  
+      <button class="btn btn-danger">
+          <a href="{% url 'eliminar' tarea.id %}" class="text-white">Eliminar</a>
+      </button>
+  
+      <button class="btn btn-success">
+          <a href="{% url 'editar' tarea.id %}" class="text-white">Editar</a>
+      </button>
+      {% endfor %}
+
+      </ul>
+{% endblock %}
